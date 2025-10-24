@@ -1,0 +1,622 @@
+/* Admin Specific Styles - Bärenfell Theme */
+
+.admin-navbar {
+    background-color: var(--maroon);
+    padding: 1.2rem 0;
+    border-bottom: 3px solid var(--darkgreen);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.admin-nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.admin-nav-links a {
+    color: var(--off-white);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.admin-nav-links a:hover {
+    color: white;
+}
+
+.btn-logout {
+    background-color: var(--darkgreen);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.btn-logout:hover {
+    background-color: #016128;
+}
+
+.admin-section {
+    min-height: 80vh;
+    padding: 3rem 0;
+    background-color: var(--off-white);
+}
+
+.admin-section h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 3px;
+    color: var(--maroon);
+}
+
+.admin-user-info {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-black);
+    font-size: 0.95rem;
+}
+
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    border-bottom: 3px solid var(--soft-grey);
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 2rem;
+    background: none;
+    border: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    color: var(--text-black);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn:hover {
+    color: var(--maroon);
+}
+
+.tab-btn.active {
+    color: var(--maroon);
+    border-bottom: 3px solid var(--maroon);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Admin Header */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.admin-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    text-align: left;
+    letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--maroon);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--darkgreen);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: white;
+    color: var(--text-black);
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--soft-grey);
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-black);
+}
+
+.btn-upload {
+    background-color: var(--darkgreen);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-upload:hover {
+    background-color: #016128;
+    transform: translateY(-2px);
+}
+
+.upload-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.btn-edit {
+    background-color: white;
+    color: var(--darkgreen);
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--darkgreen);
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: var(--darkgreen);
+    color: white;
+}
+
+.btn-delete {
+    background-color: white;
+    color: var(--maroon);
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--maroon);
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: var(--maroon);
+    color: white;
+}
+
+/* Form Container */
+.form-container {
+    background-color: white;
+    border: 2px solid var(--maroon);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 6px 6px 0px var(--soft-grey);
+}
+
+.form-container h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--maroon);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: var(--text-black);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--soft-grey);
+    background-color: var(--off-white);
+    font-size: 0.95rem;
+    font-family: 'Work Sans', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--maroon);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Items List */
+.items-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.item-card {
+    background-color: white;
+    border: 2px solid var(--soft-grey);
+    padding: 1.5rem;
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.item-card:hover {
+    border-color: var(--maroon);
+    box-shadow: 4px 4px 0px var(--maroon);
+    transform: translateY(-2px);
+}
+
+.item-image .placeholder-image {
+    width: 100px;
+    height: 100px;
+    background-color: #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.item-image .artist-placeholder {
+    border-radius: 50%;
+    background-color: var(--darkgreen);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.item-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.item-meta {
+    color: var(--grey);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.item-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--darkgreen);
+    margin-top: 0.5rem;
+}
+
+.item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.item-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Loading and Messages */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+.notification.success {
+    background-color: var(--darkgreen);
+    color: white;
+}
+
+.notification.error {
+    background-color: var(--maroon);
+    color: white;
+}
+
+.notification.info {
+    background-color: #0066cc;
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-black);
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .admin-nav-container {
+        padding: 0 1.5rem;
+    }
+
+    .admin-logo {
+        font-size: 1.2rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .admin-section h1 {
+        font-size: 2rem;
+    }
+
+    .tab-nav {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .admin-nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .admin-nav-links span,
+    .admin-nav-links a,
+    .btn-logout {
+        font-size: 0.85rem;
+    }
+
+    .admin-section {
+        padding: 2rem 0;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .admin-section h1 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .admin-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .admin-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .tab-nav {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .tab-btn {
+        flex: 1;
+        min-width: 120px;
+        font-size: 0.85rem;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .form-container h3 {
+        font-size: 1.1rem;
+    }
+
+    .form-group label {
+        font-size: 0.8rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+
+    .item-card {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .item-image {
+        margin: 0 auto;
+    }
+
+    .item-image .placeholder-image,
+    .item-image img {
+        margin: 0 auto;
+    }
+
+    .item-info {
+        text-align: center;
+    }
+
+    .item-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .item-meta,
+    .item-price {
+        font-size: 0.9rem;
+    }
+
+    .item-actions {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-navbar {
+        padding: 1rem 0;
+    }
+
+    .admin-logo {
+        font-size: 1rem;
+    }
+
+    .admin-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .admin-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .tab-btn {
+        min-width: 100px;
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .form-container {
+        padding: 1rem;
+    }
+
+    .item-card {
+        padding: 0.8rem;
+    }
+}

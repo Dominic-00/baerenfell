@@ -1,0 +1,65 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+# package-lock.json  # Needed for Docker builds
+yarn.lock
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Documentation
+README.md
+SETUP.md
+DOCKER.md
+*.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs
+*.log
+
+# Testing
+coverage
+.nyc_output
+test
+tests
+__tests__
+
+# Database
+*.sql
+*.db
+*.sqlite
+
+# Uploads (build time - mounted as volume)
+uploads/*
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+
+# Misc
+.editorconfig
+.eslintrc*
+.prettierrc*

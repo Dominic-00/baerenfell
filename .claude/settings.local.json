@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chmod:*)",
+      "Bash(node:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(npm install)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(test:*)",
+      "Bash(lsof:*)",
+      "Bash(npm run init-db:*)",
+      "Bash(psql:*)",
+      "Bash(open:*)",
+      "Bash(head -1 echo \"\" echo \"3. Testing CORRECT credentials:\" curl -s -X POST http://localhost:3000/api/auth/login -H 'Content-Type: application/json' -d '{\"\"\"\"email\"\"\"\":\"\"\"\"admin@baerenfell.store\"\"\"\",\"\"\"\"password\"\"\"\":\"\"\"\"changeme123\"\"\"\"}')",
+      "Bash(awk '{print \"\"\"\"   \"\"\"\" $9 \"\"\"\" (\"\"\"\" $5 \"\"\"\")\"\"\"\"}' echo \"\" echo \"✅ Server running:\" lsof -ti:300)",
+      "Bash(grep -o '\"\"\"\"message\"\"\"\":\"\"\"\"[^\"\"\"\"]*\"\"\"\"' echo \"\" echo \"✅ API test (correct credentials):\" curl -s -X POST http://localhost:3000/api/auth/login -H 'Content-Type: application/json' -d '{\"\"\"\"email\"\"\"\":\"\"\"\"admin@baerenfell.store\"\"\"\",\"\"\"\"password\"\"\"\":\"\"\"\"changeme123\"\"\"\"}')",
+      "Bash(head -3 echo \"\" echo \"=== INTEGRATION TEST ===\" echo \"✅ Webshop loads products from: GET /api/products\" echo \"✅ Webshop loads artists from: GET /api/artists\" echo \"✅ Admin creates via: POST /api/products & /api/artists\" echo \"✅ Admin updates via: PUT /api/products/:id & /api/artists/:id\" echo \"✅ Admin deletes via: DELETE /api/products/:id & /api/artists/:id\" echo \"\" echo \"=== LIVE TEST INSTRUCTIONS ===\" echo \"1. Open: http://localhost:3000/\" echo \"2. See 6 sample products\" echo \"3. Login to admin: http://localhost:3000/admin-login.html\" echo \"4. Delete a product\" echo \"5. Refresh webshop → Product gone!\" echo \"6. Create new product\" echo \"7. Refresh webshop → New product appears!\" echo \"\")",
+      "Bash(cat:*)",
+      "Bash(awk:*)",
+      "Bash(xargs kill -9)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

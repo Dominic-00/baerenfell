@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bärenfell — Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-container">
+            <div class="admin-logo">BÄRENFELL ADMIN</div>
+            <div class="admin-nav-links">
+                <span id="adminEmail"></span>
+                <a href="index.html" target="_blank">View Shop</a>
+                <button class="btn-logout" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <section class="admin-section">
+        <div class="container">
+            <h1>Dashboard</h1>
+            <div class="admin-user-info" id="userInfo"></div>
+
+            <!-- Tab Navigation -->
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="products">Products</button>
+                <button class="tab-btn" data-tab="artists">Artists</button>
+            </div>
+
+            <!-- Products Tab -->
+            <div id="products" class="tab-content active">
+                <div class="admin-header">
+                    <h2>Manage Products</h2>
+                    <button class="btn-primary" id="newProductBtn">+ New Product</button>
+                </div>
+
+                <!-- Add Product Form -->
+                <div id="product-form" class="form-container" style="display: none;">
+                    <h3 id="productFormTitle">Add Product</h3>
+                    <form id="productFormElement">
+                        <input type="hidden" id="product-id">
+
+                        <div class="form-group">
+                            <label for="product-name">Product Name *</label>
+                            <input type="text" id="product-name" placeholder="e.g. Vintage Bear T-Shirt" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-slug">URL Slug *</label>
+                            <input type="text" id="product-slug" placeholder="e.g. vintage-bear-tshirt" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-category">Category *</label>
+                            <select id="product-category" required>
+                                <option value="">Select...</option>
+                                <option value="tshirt">T-Shirt</option>
+                                <option value="hoodie">Hoodie</option>
+                                <option value="bag">Bag</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-artist">Artist *</label>
+                            <select id="product-artist" required>
+                                <option value="">Select...</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-price">Price (CHF) *</label>
+                            <input type="number" id="product-price" placeholder="45.00" step="0.01" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-sizes">Sizes (comma separated)</label>
+                            <input type="text" id="product-sizes" placeholder="S, M, L, XL">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-stock">Stock *</label>
+                            <input type="number" id="product-stock" placeholder="10" min="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-main-image">Main Image</label>
+                            <div class="upload-container">
+                                <input type="file" id="product-main-image-file" accept="image/*" style="display: none;">
+                                <button type="button" class="btn-upload" id="product-main-image-upload-btn">
+                                    📤 Upload Image
+                                </button>
+                                <span id="product-main-image-filename" style="margin-left: 1rem; color: #666; font-size: 0.9rem;"></span>
+                            </div>
+                            <small style="display: block; margin-top: 0.5rem; color: #666;">Or enter image URL:</small>
+                            <input type="text" id="product-main-image" placeholder="https://..." style="margin-top: 0.5rem;">
+                            <div id="product-main-image-preview" style="margin-top: 1rem;"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-hover-image">Hover Image</label>
+                            <div class="upload-container">
+                                <input type="file" id="product-hover-image-file" accept="image/*" style="display: none;">
+                                <button type="button" class="btn-upload" id="product-hover-image-upload-btn">
+                                    📤 Upload Image
+                                </button>
+                                <span id="product-hover-image-filename" style="margin-left: 1rem; color: #666; font-size: 0.9rem;"></span>
+                            </div>
+                            <small style="display: block; margin-top: 0.5rem; color: #666;">Or enter image URL:</small>
+                            <input type="text" id="product-hover-image" placeholder="https://..." style="margin-top: 0.5rem;">
+                            <div id="product-hover-image-preview" style="margin-top: 1rem;"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-description">Description</label>
+                            <textarea id="product-description" rows="4" placeholder="Product description..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="product-story">Story (Bern connection)</label>
+                            <textarea id="product-story" rows="3" placeholder="Tell the story behind this design..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="product-active" checked> Active (visible on shop)
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="product-featured"> Featured
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Product</button>
+                            <button type="button" class="btn-secondary" id="cancelProductBtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Products List -->
+                <div id="productsList" class="items-list">
+                    <p style="text-align: center; color: #999;">Loading products...</p>
+                </div>
+            </div>
+
+            <!-- Artists Tab -->
+            <div id="artists" class="tab-content">
+                <div class="admin-header">
+                    <h2>Manage Artists</h2>
+                    <button class="btn-primary" id="newArtistBtn">+ New Artist</button>
+                </div>
+
+                <!-- Add Artist Form -->
+                <div id="artist-form" class="form-container" style="display: none;">
+                    <h3 id="artistFormTitle">Add Artist</h3>
+                    <form id="artistFormElement">
+                        <input type="hidden" id="artist-id">
+
+                        <div class="form-group">
+                            <label for="artist-name">Name *</label>
+                            <input type="text" id="artist-name" placeholder="e.g. Max Müller" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="artist-bio">Biography *</label>
+                            <textarea id="artist-bio" rows="4" placeholder="Artist biography..." required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="artist-image">Profile Image</label>
+                            <div class="upload-container">
+                                <input type="file" id="artist-image-file" accept="image/*" style="display: none;">
+                                <button type="button" class="btn-upload" id="artist-image-upload-btn">
+                                    📤 Upload Image
+                                </button>
+                                <span id="artist-image-filename" style="margin-left: 1rem; color: #666; font-size: 0.9rem;"></span>
+                            </div>
+                            <small style="display: block; margin-top: 0.5rem; color: #666;">Or enter image URL:</small>
+                            <input type="text" id="artist-image" placeholder="https://..." style="margin-top: 0.5rem;">
+                            <div id="artist-image-preview" style="margin-top: 1rem;"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="artist-instagram">Instagram (optional)</label>
+                            <input type="text" id="artist-instagram" placeholder="@username">
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary">Save Artist</button>
+                            <button type="button" class="btn-secondary" id="cancelArtistBtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Artists List -->
+                <div id="artistsList" class="items-list">
+                    <p style="text-align: center; color: #999;">Loading artists...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="admin.js"></script>
+</body>
+</html>
