@@ -1,4 +1,5 @@
 const { Artist, Product } = require('../models');
+const { saveArtistPage, deleteArtistPage } = require('../utils/pageGenerator');
 
 // @desc    Get all artists
 // @route   GET /api/artists
@@ -68,7 +69,22 @@ exports.getArtist = async (req, res, next) => {
 // @access  Private/Admin
 exports.createArtist = async (req, res, next) => {
   try {
+    // Generate slug from name if not provided
+    if (!req.body.slug && req.body.name) {
+      req.body.slug = req.body.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
     const artist = await Artist.create(req.body);
+
+    // Generate artist page
+    try {
+      await saveArtistPage(artist);
+    } catch (pageError) {
+      console.error('Error generating artist page:', pageError);
+    }
 
     res.status(201).json({
       success: true,
@@ -93,7 +109,33 @@ exports.updateArtist = async (req, res, next) => {
       });
     }
 
+    const oldSlug = artist.slug;
+
+    // Generate slug from name if slug is being changed or not provided
+    if (req.body.name && !req.body.slug) {
+      req.body.slug = req.body.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
     artist = await artist.update(req.body);
+
+    // If slug changed, delete old page
+    if (oldSlug && oldSlug !== artist.slug) {
+      try {
+        deleteArtistPage(oldSlug);
+      } catch (pageError) {
+        console.error('Error deleting old artist page:', pageError);
+      }
+    }
+
+    // Regenerate artist page
+    try {
+      await saveArtistPage(artist);
+    } catch (pageError) {
+      console.error('Error generating artist page:', pageError);
+    }
 
     res.status(200).json({
       success: true,
@@ -118,7 +160,16 @@ exports.deleteArtist = async (req, res, next) => {
       });
     }
 
+    const slug = artist.slug;
+
     await artist.destroy();
+
+    // Delete artist page
+    try {
+      deleteArtistPage(slug);
+    } catch (pageError) {
+      console.error('Error deleting artist page:', pageError);
+    }
 
     res.status(200).json({
       success: true,

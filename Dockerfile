@@ -54,8 +54,8 @@ COPY --from=builder --chown=nodejs:nodejs /app/client ./client
 COPY --from=builder --chown=nodejs:nodejs /app/package.json ./
 
 # Create uploads and products directories
-RUN mkdir -p uploads/products uploads/artists client/products && \
-    chown -R nodejs:nodejs uploads client/products
+RUN mkdir -p uploads/products uploads/artists client/products client/artists && \
+    chown -R nodejs:nodejs uploads client/products client/artists
 
 # Switch to non-root user
 USER nodejs

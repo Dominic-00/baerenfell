@@ -11,6 +11,11 @@ const Artist = sequelize.define('Artist', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  slug: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
   bio: {
     type: DataTypes.TEXT,
     allowNull: true

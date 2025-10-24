@@ -908,3 +908,191 @@ section {
         height: 80px;
     }
 }
+
+/* ==================== Artist Detail Pages ==================== */
+
+.artist-detail {
+    padding: 6rem 2rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.artist-detail .container {
+    width: 100%;
+}
+
+.artist-detail .back-link {
+    display: inline-block;
+    margin-bottom: 3rem;
+    color: var(--maroon);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.artist-detail .back-link:hover {
+    transform: translateX(-5px);
+}
+
+.artist-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+
+.artist-detail-image {
+    position: relative;
+}
+
+.artist-detail-image img {
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--maroon);
+    box-shadow: 8px 8px 0 var(--maroon);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.artist-detail-image img:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--maroon);
+}
+
+.artist-placeholder-large {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cream);
+    border: 2px solid var(--maroon);
+    box-shadow: 8px 8px 0 var(--maroon);
+    font-size: 6rem;
+    color: var(--maroon);
+    font-weight: 700;
+}
+
+.artist-detail-info h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3.5rem;
+    color: var(--maroon);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    letter-spacing: -2px;
+}
+
+.artist-location {
+    font-size: 1.3rem;
+    color: var(--darkgreen);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.artist-bio {
+    margin: 2rem 0;
+}
+
+.artist-bio h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    color: var(--maroon);
+    margin-bottom: 1rem;
+}
+
+.artist-bio p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-black);
+}
+
+.artist-social {
+    margin-top: 2rem;
+}
+
+.instagram-link {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: white;
+    border: 2px solid var(--maroon);
+    color: var(--maroon);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 4px 4px 0 var(--maroon);
+    transition: all 0.2s;
+}
+
+.instagram-link:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--maroon);
+}
+
+.artist-products-section {
+    margin-top: 6rem;
+}
+
+.artist-products-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    color: var(--maroon);
+    margin-bottom: 3rem;
+    letter-spacing: -1px;
+}
+
+/* Make artist profiles clickable */
+.artist-profile {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.artist-profile:hover {
+    transform: translateY(-5px);
+}
+
+.artist-profile img {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.artist-profile:hover img {
+    transform: translate(-3px, -3px);
+    box-shadow: 8px 8px 0 var(--maroon);
+}
+
+/* Responsive Artist Detail */
+@media (max-width: 968px) {
+    .artist-detail {
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .artist-detail-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .artist-detail-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .artist-location {
+        font-size: 1.1rem;
+    }
+
+    .artist-bio h3 {
+        font-size: 1.5rem;
+    }
+
+    .artist-bio p {
+        font-size: 1.1rem;
+    }
+
+    .artist-placeholder-large {
+        font-size: 4rem;
+    }
+
+    .artist-products-section h2 {
+        font-size: 2rem;
+    }
+}

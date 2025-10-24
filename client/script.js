@@ -42,15 +42,15 @@ function showOutOfStockBanner() {
     if (!shopGrid) return;
 
     shopGrid.innerHTML = `
-        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; background: white; border: 2px solid var(--maroon); box-shadow: 6px 6px 0 var(--maroon);">
+        <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem; background: white; border: 2px solid var(--maroon); box-shadow: 6px 6px 0 var(--maroon); max-width: 800px; margin: 0 auto;">
             <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; color: var(--maroon); margin-bottom: 1rem; letter-spacing: -1px;">
-                We're Out of Stock
+                Ausverkauft
             </h2>
             <p style="font-size: 1.2rem; color: var(--text-black); margin-bottom: 0.5rem;">
-                Next drop coming soon.
+                Der nächste Drop kommt bald.
             </p>
             <p style="font-size: 1rem; color: var(--darkgreen); font-weight: 500;">
-                Stay tuned for fresh designs from Bern.
+                Bleib dran für frische Designs aus Bern.
             </p>
         </div>
     `;
@@ -64,12 +64,14 @@ function renderProducts(products) {
     shopGrid.innerHTML = products.map(product => `
         <a href="/products/${product.slug}.html" class="product-item">
             <div class="product-image">
-                <img src="${product.mainImage || 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=700&fit=crop'}"
+                <img src="${product.mainImage || '/img/no-image.svg'}"
                      alt="${product.name}"
-                     class="img-main">
-                <img src="${product.hoverImage || product.mainImage || 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&h=700&fit=crop'}"
+                     class="img-main"
+                     onerror="this.src='/img/no-image.svg'">
+                <img src="${product.hoverImage || product.mainImage || '/img/no-image.svg'}"
                      alt="${product.name} on model"
-                     class="img-hover">
+                     class="img-hover"
+                     onerror="this.src='/img/no-image.svg'">
             </div>
             <div class="product-details">
                 <h3>${product.name}</h3>
@@ -98,21 +100,26 @@ async function loadArtists() {
 
 // Render artists in the collective section
 function renderArtists(artists) {
-    const artistsGrid = document.querySelector('.artists-grid');
-    if (!artistsGrid) return;
+    const collectiveGrid = document.querySelector('.collective-grid');
+    if (!collectiveGrid) return;
 
-    artistsGrid.innerHTML = artists.map(artist => `
-        <div class="artist-card">
-            <div class="artist-image">
-                ${artist.image ?
-                    `<img src="${artist.image}" alt="${artist.name}">` :
-                    `<div class="artist-placeholder">${getInitials(artist.name)}</div>`
-                }
+    if (artists.length === 0) {
+        // Don't display anything if no artists in database
+        collectiveGrid.innerHTML = '';
+        return;
+    }
+
+    collectiveGrid.innerHTML = artists.map(artist => `
+        <a href="/artists/${artist.slug}.html" class="artist-profile">
+            ${artist.image ?
+                `<img src="${artist.image}" alt="${artist.name}">` :
+                `<div class="artist-placeholder" style="width: 100%; height: 300px; display: flex; align-items: center; justify-content: center; background: var(--cream); border: 2px solid var(--maroon); font-size: 3rem; color: var(--maroon);">${getInitials(artist.name)}</div>`
+            }
+            <div class="artist-info">
+                <h3>${artist.name}</h3>
+                <p>${artist.bio || ''}</p>
             </div>
-            <h3>${artist.name}</h3>
-            <p>${artist.bio}</p>
-            ${artist.instagram ? `<a href="https://instagram.com/${artist.instagram.replace('@', '')}" target="_blank" rel="noopener">${artist.instagram}</a>` : ''}
-        </div>
+        </a>
     `).join('');
 }
 
