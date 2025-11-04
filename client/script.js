@@ -1,7 +1,7 @@
 // Bärenfell — Interactive Elements
 
 // API Configuration
-const API_URL = 'http://localhost:3000/api';
+const API_URL = '/api';
 
 // Load products and artists on page load
 document.addEventListener('DOMContentLoaded', async () => {

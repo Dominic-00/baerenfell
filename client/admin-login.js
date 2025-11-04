@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = '/api';
 const form = document.getElementById('loginForm');
 const message = document.getElementById('message');
 const loginBtn = document.getElementById('loginBtn');
